@@ -75,7 +75,7 @@ def extract_customer_from_file(filepath):
 
 def move_matching_messages(mail, source_folder, target_folder, customer_email):
     """Searches a folder for emails to/from the customer (including website Reply-To headers) and moves them."""
-    status, _ = mail.select(f'"{source_folder}"')
+    status, _ = mail.select(f'"{source_folder}"'.encode('utf-8'))
     if status != "OK":
         return
 
@@ -86,7 +86,7 @@ def move_matching_messages(mail, source_folder, target_folder, customer_email):
     if status == "OK" and data[0]:
         msg_nums = data[0].split()
         for num in msg_nums:
-            res, _ = mail.copy(num, f'"{target_folder}"')
+            res, _ = mail.copy(num, f'"{target_folder}"'.encode('utf-8'))
             if res == "OK":
                 mail.store(num, "+FLAGS", "\\Deleted")
         mail.expunge()
@@ -113,9 +113,9 @@ def run_sync(customer_email, target_folder):
     mail = imaplib.IMAP4_SSL(IMAP_SERVER, IMAP_PORT)
     mail.login(IMAP_USER, PASSWORD)
 
-    # Ensure parent 'Tellimused' and customer folder exist
-    mail.create(f'"{BASE_FOLDER}"')
-    mail.create(f'"{target_folder}"')
+    # Ensure parent 'Tellimused' and customer folder exist (encoded as UTF-8 bytes)
+    mail.create(f'"{BASE_FOLDER}"'.encode('utf-8'))
+    mail.create(f'"{target_folder}"'.encode('utf-8'))
 
     # Sweep past messages from INBOX and Sent
     move_matching_messages(mail, "INBOX", target_folder, customer_email)

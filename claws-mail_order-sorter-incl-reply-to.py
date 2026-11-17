@@ -126,7 +126,7 @@ def run_sync(customer_email, target_folder):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        sys.exit("Usage: order_sorter.py <path_to_email_file> | --watch")
+        sys.exit("Usage: claws-mail_order-sorter-incl-reply-to.py <path_to_email_file> | --watch")
 
     if sys.argv[1] == "--watch":
         if not os.path.exists(WATCH_FILE):

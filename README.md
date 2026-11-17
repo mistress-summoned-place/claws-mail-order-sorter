@@ -42,7 +42,7 @@ Download or copy `claws-mail_order-sorter-incl-reply-to.py` and fill in your ser
 
 
 ### 3. Claws Mail Action Setup
-In Claws Mail, go to **Configuration -> Actions...*** and add a new action:
+In Claws Mail, go to **Configuration -> Actions...** and add a new action:
 
     Menu Name: New Order!
 
@@ -57,7 +57,7 @@ To keep active threads automatically synced every few minutes without manual tri
 
 Add the following line to run the watcher quietly every 5 minutes:
 
-    */5 * * * * /path/to/order_sorter.py --watch >/dev/null 2>&1
+    */5 * * * * /path/to/claws-mail_order-sorter-incl-reply-to.py --watch >/dev/null 2>&1
 
 
 ## License

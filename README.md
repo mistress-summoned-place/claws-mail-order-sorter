@@ -62,4 +62,7 @@ Add the following line to run the watcher quietly every 5 minutes:
 
 ## License
 
-MIT License - feel free to use, modify, and adapt it for your own workflow.
+MIT License - feel free to use, modify, and adapt it for your own workflow. 
+
+## Acknowledgements
+Developed with the assistance of Gemini as a personal AI collaborator, tailored for clean IMAP workflows and minimal Linux environments.
